@@ -61,14 +61,13 @@ if(tmp)free(tmp);
 void mergeSort(int *x,int lb,int ub)
 {
 int mid;
-mid=(lb+ub)/2;
-if(lb==ub) return;
-if((lb<=mid && mid+1<=ub))
+if(lb<ub)
 {
+mid=(ub+lb)/2;
 mergeSort(x,lb,mid);
 mergeSort(x,mid+1,ub);
-}
 merge(x,lb,mid,mid+1,ub);
+}
 }
 
 int main()
