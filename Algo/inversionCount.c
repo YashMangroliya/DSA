@@ -1,18 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
-int invCount=0;
-void merge(int *x,int lb1,int ub1,int lb2,int ub2)
+int merge(int *x,int lb,int mid,int ub,int *tmp)
 {
-int size1=ub1-lb1+1;
-int size2=ub2-lb2+1;
-int size=size1+size2;
-int *tmp;
-tmp=(int *)malloc(sizeof(int)*size);
-int i1,i2,i3;
-i1=lb1;
-i2=lb2;
-i3=0;
-while(i1<=ub1 && i2<=ub2)
+int i1,i2,i3,count;
+count=0;
+i1=lb;
+i2=mid+1;
+i3=lb;
+while(i1<=mid && i2<=ub)
 {
 if(x[i1]<x[i2])
 {
@@ -23,65 +18,58 @@ else
 {
 tmp[i3]=x[i2];
 i2++;
-invCount=invCount+(ub1-i1)+1;
+count=count+(mid-i1)+1;
 }
 i3++;
 }
-while(i1<=ub1)
+while(i1<=mid)
 {
 tmp[i3]=x[i1];
 i3++;
 i1++;
 }
-while(i2<=ub2)
+while(i2<=ub)
 {
 tmp[i3]=x[i2];
 i3++;
 i2++;
 }
-i3=0;
-i1=lb1;
-while(i1<=ub1)
+i3=lb;
+while(i3<=ub)
 {
-x[i1]=tmp[i3];
+x[i3]=tmp[i3];
 i3++;
-i1++;
 }
-i2=lb2;
-while(i2<=ub2)
-{
-x[i2]=tmp[i3];
-i3++;
-i2++;
-}
-if(tmp)free(tmp);
+return count;
 }
 
 
 
-void mergeSort(int *x,int lb,int ub)
+int mergeSort(int *x,int lb,int ub,int *tmp)
 {
 int mid;
+int count=0;
 if(lb<ub)
 {
 mid=(ub+lb)/2;
-mergeSort(x,lb,mid);
-mergeSort(x,mid+1,ub);
-merge(x,lb,mid,mid+1,ub);
+count=count+mergeSort(x,lb,mid,tmp);
+count=count+mergeSort(x,mid+1,ub,tmp);
+count=count+merge(x,lb,mid,ub,tmp);
 }
+return count;
+}
+int invCount(int *x,int size)
+{
+int *tmp;
+int count;
+tmp=(int *)malloc(sizeof(int)*size);
+count=mergeSort(x,0,size-1,tmp);
+free(tmp);
+return count;
 }
 int main()
 {
-int *x,y;
-y=0;
-x=(int*)malloc(sizeof(int)*10);
-while(y<10)
-{
-printf("Enter a number: ");
-scanf("%d",&x[y]);
-y++;
-}
-mergeSort(x,0,9);
-printf("Inversion Count: %d",invCount);
+int x[10]={9,8,7,6,5,4,3,2,1,0};
+printf("Inversion Count: %d",invCount(x,10));
 return 0;
 }
