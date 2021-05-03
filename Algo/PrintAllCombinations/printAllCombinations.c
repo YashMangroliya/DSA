@@ -1,3 +1,5 @@
+// In this exmaple we have given an array of n characters and we will find all possible  
+// k digit combinations
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
