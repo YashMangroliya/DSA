@@ -43,8 +43,8 @@ _printAllCombinationsOfString(str,0,size-1);
 }
 int main()
 {
-char str[5]="aaaaa";
-printAllCombinationsOfString(str,5);
+char str[7]="HISTORY";
+printAllCombinationsOfString(str,7);
 printf("Count: %d\n",count);
 return 0;
 }

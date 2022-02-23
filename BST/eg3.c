@@ -1,5 +1,5 @@
 // here we have implemented BST inorder using STACK ( NON-RECURSIVE ALGORITHM )
-// and implemented DELETE , Height of BST, Number of Leaf Node
+// and implemented DELETE , Height of BST, Number of Leaf Node, Post-Order Traversal
 #include<iostream>
 #include<stdlib.h>
 #include<stack>
@@ -209,6 +209,63 @@ if(j->right==NULL && j->left==NULL) leafNodeCount++;
 return leafNodeCount;
 }
 
+BSTNode* getLCA(BSTNode* root,int n1,int n2)
+{
+if(root==NULL) return NULL;
+if(root->data==n1 || root->data==n2) return root;
+BSTNode *left,*right;
+left=getLCA(root->left,n1,n1);
+right=getLCA(root->right,n1,n2);
+if(left==NULL && right==NULL) return NULL;
+if(left!=NULL && right!=NULL) return root;
+if(left!=NULL) return getLCA(root->left,n1,n2);
+return getLCS(root->left,n1,n2);
+}
+
+int findDist(BSTNode* root,int k,int dist)
+{
+if(root==NULL) return -1;
+if(root->data==k) return dist;
+int left=findDist(root->left,k,dist+1);
+if(left!=-1) return left;
+else return findDist(root->right,k,dist+1);
+}
+int getDistBetweenNodes(BSTNode* root,n1,n2)
+{
+BSTNode* lca=getLCA(root,n1,n2);
+int d1=findDist(lca,n1,0);
+int d2=findDist(lca,n2,0);
+return d1+d2;
+}
+void postOrderTraversal()
+{
+struct BSTNode *t;
+if(start==NULL) return;
+t=start;
+while(1)
+{
+while(t!=NULL)
+{
+if(t->right!=NULL) push(t->right);
+push(t);
+t=t->left;
+}
+t=pop();
+if(!isEmpty() && t->right!=NULL && t->right==elementAtTop())
+{
+pop();
+push(t);
+t=t->right;
+}
+else
+{
+printf("%d\n",t->data);
+t=NULL;
+}
+if(isEmpty()) break;
+
+}
+}
 int main()
 {
 int ch,num;
