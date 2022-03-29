@@ -40,7 +40,7 @@ public:
         stack<int> s;
         for(int i=2*n-1;i>=0;i--)
         {
-            while(s.empty()==false && s.top()<=nums[i%n])
+            while( !s.empty() && s.top()<=nums[i%n])
             {
                 s.pop();
             }
