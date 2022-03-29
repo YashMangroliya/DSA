@@ -36,7 +36,7 @@ public:
         
         
         int n=nums.size();
-        vector<int> ans(n,-1);   // created a vector of size n, all values are initilized as -1
+        vector<int> ans(n,-1);   // created a vector of size n, all values are initialized by -1
         stack<int> s;
         for(int i=2*n-1;i>=0;i--)
         {
