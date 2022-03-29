@@ -24,7 +24,6 @@ public:
         //     maxArea=max(area,maxArea);
         // }
         // return maxArea;
-
         
         // Optimized Solution
         
