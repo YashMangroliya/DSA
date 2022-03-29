@@ -35,9 +35,9 @@ public:
         // return ans;
         
         
-        vector<int> ans;
-        stack<int> s;
         int n=nums.size();
+        vector<int> ans(n,-1);   // created a vector of size n, all values are initilized as -1
+        stack<int> s;
         for(int i=2*n-1;i>=0;i--)
         {
             while(s.empty()==false && s.top()<=nums[i%n])
@@ -47,8 +47,7 @@ public:
             
             if(i<n)
             {
-                if(s.empty()==false) ans.insert(ans.begin(),s.top());
-                else ans.insert(ans.begin(),-1);
+                if( !s.empty() ) ans[i]=s.top();  // else it is already -1
             }
             s.push(nums[i%n]);
         }
