@@ -2,6 +2,8 @@ class Solution {
 public:
     string convert(string s, int numRows) {
         int i=0,j=0,count=0;
+        
+        // code for iterating zigzag
         // while(count<s.length())
         // {
         //     for(i=0;i<numRows;i++)
@@ -16,12 +18,9 @@ public:
         // }
         
         if(numRows==1) return s;
-        string arr[numRows];
+        vector<string> arr(numRows,"");
         string ans="";
-        for(i=0;i<numRows;i++)
-        {
-            arr[i]="";
-        }
+        
         int index=0;
         bool flag=true;
         for(i=0;i<s.length();i++)
@@ -40,9 +39,9 @@ public:
                 flag=true;
             }
         }
-        for(i=0;i<numRows;i++)
+        for(string ss : arr)
         {
-            ans+=arr[i];
+            ans+=ss;
         }
         return ans;
     }
