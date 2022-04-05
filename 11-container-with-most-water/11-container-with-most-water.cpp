@@ -27,7 +27,6 @@ public:
             if(heights[s]<heights[e]) s++;
             else e--;
         }
-        
         return maxArea;
     }
 };
