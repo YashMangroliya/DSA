@@ -61,7 +61,8 @@ public:
         // for(auto v: ansSet) ans.push_back(v);
         // return ans;
         
-        // Method 3 
+        // Method 3 (method 1 with some changes)
+        
         vector<vector<int>> ans;
         if(nums.size()<3) return ans;
         sort(nums.begin(),nums.end());
