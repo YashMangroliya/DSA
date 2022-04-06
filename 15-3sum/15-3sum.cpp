@@ -6,7 +6,9 @@ public:
         if(nums.size()<3) return ans;
         sort(nums.begin(),nums.end());
         int required=0,curr,sum;
-        set<vector<int>> ansSet;
+        
+        // Method 1 TLE
+        
         // set<vector<int>> s;
         // for(int i=0;i<nums.size()-2;i++)
         // {
@@ -28,6 +30,8 @@ public:
         // for(auto v : s) ans.push_back(v);
         // return ans;
         
+        
+        set<vector<int>> ansSet;
         for(int i=0;i<nums.size()-1;i++)
         {
             if(i!=0 && nums[i]==nums[i-1]) continue;
