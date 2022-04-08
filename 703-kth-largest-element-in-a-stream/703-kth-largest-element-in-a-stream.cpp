@@ -31,7 +31,6 @@ public:
         }
     };
     
-    
     KthLargest(int k, vector<int>& nums) {
         this->k=k;
         make_heap(heap.begin(),heap.end(),greater());
