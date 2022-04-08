@@ -48,6 +48,7 @@ public:
     }
     
     int add(int val) {
+        
         heap.push_back(val);
         push_heap(heap.begin(),heap.end(),greater());
         if(heap.size()>this->k)
