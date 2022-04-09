@@ -2,7 +2,7 @@ class Solution {
 public:
     
     vector<int> heap;
-    map<int,int> m;
+    unordered_map<int,int> m;
     vector<int> getTopK(int k)
     {
         vector<int> ans;
@@ -62,8 +62,8 @@ public:
         for(int num : nums)
         {
             m[num]++;
+            if(m[num]==1) heap.push_back(num);
         }
-        for(auto entry : m) heap.push_back(entry.first);
         createHeap();
         vector<int> ans = getTopK(k);
         return ans;
