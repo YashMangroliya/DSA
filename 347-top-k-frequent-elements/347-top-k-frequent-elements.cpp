@@ -3,53 +3,6 @@ public:
     
     vector<int> heap;
     map<int,int> m;
-    
-//     void add(int num)
-//     {
-//         int ri,ci,swi,g,lci,rci;
-//         ci=heap.size();
-//         heap.push_back(num);
-//         while(ci>0)
-//         {
-//             ri=(ci-1)/2;
-//             if(m[heap[ci]] < m[heap[ri]])
-//             {
-//                 g=heap[ci];
-//                 heap[ci]=heap[ri];
-//                 heap[ri]=g;
-                
-//                 ci=ri;
-//             }
-//             else break;
-//         }
-        
-//         if(heap.size()>size)
-//         {
-//             swap(heap[0],heap[heap.size()-1]);
-//             heap.pop_back();
-//             ri=0;
-//             while(1)
-//             {
-//                 lci=ri*2+1;
-//                 rci=lci+1;
-//                 if(lci>=this->size) break;
-//                 if(rci>=this->size) swi=lci;
-//                 else
-//                 {
-//                     if(m[heap[lci]] < m[heap[rci]] ) swi=lci;
-//                     else swi=rci;
-//                 }
-                
-//                 if(m[heap[swi]] < m[heap[ri]])
-//                 {
-//                     swap(heap[ri],heap[swi]);
-//                     ri=swi;    
-//                 }
-//                 else break;
-//             }
-//         }
-//     }
-    
     vector<int> getTopK(int k)
     {
         vector<int> ans;
