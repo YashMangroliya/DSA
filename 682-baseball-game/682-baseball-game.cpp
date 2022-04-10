@@ -2,31 +2,35 @@ class Solution {
 public:
     int calPoints(vector<string>& ops) {
         int score=0,last,secondLast;
-        vector<int> ans;
+        stack<int> ans;
         for(string s : ops)
         {
             if(s.compare("C")==0)
             {
-                ans.pop_back();
+                ans.pop();
             }
             else if(s.compare("D")==0)
             {
-                ans.push_back(ans.back()*2);
+                ans.push(ans.top()*2);
             }
             else if(s.compare("+")==0)
             {
-                last=ans.back();
-                ans.pop_back();
-                secondLast=ans.back();
-                ans.push_back(last);
-                ans.push_back(last+secondLast);
+                last=ans.top();
+                ans.pop();
+                secondLast=ans.top();
+                ans.push(last);
+                ans.push(last+secondLast);
             }
             else 
             {
-                ans.push_back(stoi(s));
+                ans.push(stoi(s));
             }
         }
-        for(int i: ans) score+=i;
+        while(ans.empty()==false) 
+        {
+            score+=ans.top();
+            ans.pop();
+        }
         return score;
     }
 };
