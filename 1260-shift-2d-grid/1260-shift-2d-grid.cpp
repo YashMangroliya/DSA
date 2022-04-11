@@ -5,6 +5,7 @@ public:
         int n=grid[0].size();
         int lastNum;
         int i,j;
+        
         while(k>0)
         {
             lastNum=grid[m-1][n-1];
