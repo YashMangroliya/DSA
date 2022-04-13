@@ -7,8 +7,7 @@ public:
         int cs=0,ce=c-1,rs=0,re=r-1;
         int k,i,j;
         k=1;
-        i=0;
-        j=0;
+        i=j=0;
         int element=1;
         while(cs<=ce && rs<=re)
         {
