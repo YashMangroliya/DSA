@@ -9,6 +9,7 @@ public:
         k=1;
         i=j=0;
         int element=1;
+        
         while(cs<=ce && rs<=re)
         {
             while(j<=ce && j>=cs)
