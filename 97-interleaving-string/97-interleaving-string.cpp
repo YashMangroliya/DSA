@@ -33,11 +33,11 @@ public:
         if(A.length()+B.length()!=C.length()) return false;
         // vector<vector<int>> dp(A.length()+1,vector<int>(B.length()+1,0));
         
-        memset(dp, -1,sizeof(dp));
-        // for(int i=0;i<A.length()+1;i++)
-        // {
-        //     for(int j=0;j<B.length()+1;j++) dp[i][j]=0;
-        // }
+        // memset(dp, -1,sizeof(dp));
+        for(int i=0;i<A.length()+1;i++)
+        {
+            for(int j=0;j<B.length()+1;j++) dp[i][j]=-1;
+        }
         //  we will store 1 for possible and -1 for not possible, 0 is default value
         return isInterleave_(A,B,C,0,0);
     }
