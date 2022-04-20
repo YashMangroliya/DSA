@@ -34,7 +34,6 @@ public:
         }
         return t->val;
     }
-    
     bool hasNext() {
         return !stk.empty();
     }
