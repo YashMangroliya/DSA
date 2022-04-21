@@ -1,6 +1,6 @@
 class MyHashSet {
 public:
-    int hash=10;
+    int hash=1000;
     vector<vector<int>> vec;
     MyHashSet() {
         for(int i=0;i<hash;i++) vec.push_back(vector<int>());
