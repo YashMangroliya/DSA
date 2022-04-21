@@ -16,8 +16,13 @@ class Solution
 	        ans.push_back(s);
 	        return;
 	    }
-	    for(int i=swi;i<s.length();i++)
+	    int i,k;
+	    for(i=swi;i<s.length();i++)
 	    {
+	        // code for not printing duplicate permutation starts here (for understanding take s='YAAS')
+	        for(k=swi;k<i;k++) if(s[k]==s[i]) break;
+	        if(k<i) continue;
+	        // code for not printing duplicate permutation ends here (for understanding take s='YAAS')
 	        c=s[i];
 	        s[i]=s[swi];
 	        s[swi]=c;
