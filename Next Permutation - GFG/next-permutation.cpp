@@ -25,7 +25,7 @@ public:
             sort(arr.begin(),arr.end());
             return arr;
         }
-        for(int i=N-1;i>=0;i--)
+        for(int i=N-1;i>ind1;i--)
         {
             if(arr[i]>arr[ind1])
             {
