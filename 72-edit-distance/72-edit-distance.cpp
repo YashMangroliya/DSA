@@ -1,7 +1,7 @@
 class Solution {
 public:
     int dp[502][502];
-    int rec(string& s, string& t, int i, int j)
+    int rec(string s, string t, int i, int j)
     {
         if(j>=t.length()) {
             return s.length()-i;
