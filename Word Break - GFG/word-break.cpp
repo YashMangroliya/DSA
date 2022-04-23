@@ -16,42 +16,27 @@ class Solution
 public:
     unordered_set<string> set1;
     
-    int rec(string& A, int index, int dp[])
+    int rec(string& A, int index)
     {
-        if(index==-1) return 1;
-        if(dp[index]!=-1) return dp[index];
+        if(index==A.length()) return 1;
         int i,k;
         string s;
-        for(i=index;i>=0;i--)
+        for(i=index;i<A.length();i++)
         {
-            s=A.substr(i,index-i+1);
+            s=A.substr(index,i-index+1);
             if(set1.find(s)!=set1.end())
             {
-                k=i-1;
-                if(rec(A,i-1,dp))
-                {
-                    dp[index]=1;
-                    return 1;
-                }
+                k=i+1;
+                if(rec(A,i+1)) return 1;
             }
         }
-        if(k==A.length())
-        {
-            dp[index]=1;
-            return 1;
-        }
-        else 
-        {
-            dp[index]=0;
-            return 0;
-        }
+        if(k==A.length()) return 1;
+        else return 0;
     }
     
     int wordBreak(string A, vector<string> &B) {
-        int dp[A.length()+1];
-        memset(dp,-1,sizeof(dp));
         for(string s : B) set1.insert(s);
-        return rec(A,A.length()-1,dp);
+        return rec(A,0);
     }
     
     // int rec(string& A, int index)
