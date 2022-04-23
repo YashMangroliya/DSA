@@ -18,25 +18,25 @@ public:
     
     int rec(string& A, int index)
     {
-        if(index==-1) return 1;
+        if(index==0) return 1;
         int i,k;
         string s;
-        for(i=index;i>=0;i--)
+        for(i=index-1;i>=0;i--)
         {
-            s=A.substr(i,index-i+1);
+            s=A.substr(i,(index-1)-i+1);
             if(set1.find(s)!=set1.end())
             {
-                k=i-1;
-                if(rec(A,i-1)) return 1;
+                k=i;
+                if(rec(A,i)) return 1;
             }
         }
-        if(k==-1) return 1;
+        if(k==0) return 1;
         else return 0;
     }
     
     int wordBreak(string A, vector<string> &B) {
         for(string s : B) set1.insert(s);
-        return rec(A,A.length()-1);
+        return rec(A,A.length());
     }
     
     // int rec(string& A, int index)
