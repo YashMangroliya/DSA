@@ -2,6 +2,7 @@ class Solution {
 public:
     vector<int> sortArrayByParity(vector<int>& nums) {
         int e=0,f=nums.size()-1;
+        
         while(e<f)
         {
             while(e<nums.size() && nums[e]%2==0) e++;
