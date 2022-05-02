@@ -1,2 +1,2 @@
 # DSA
-I will be creating various data structures algorithms here.
+I will be practicing various data structures algorithms here.
