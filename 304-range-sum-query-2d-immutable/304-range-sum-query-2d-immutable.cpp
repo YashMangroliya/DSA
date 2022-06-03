@@ -7,7 +7,6 @@ public:
         this->matrix1=matrix;
         this->matrix2=matrix;
         int sum;
-        
         for(int i=0;i<matrix1.size();i++)
         {
             sum=0;
