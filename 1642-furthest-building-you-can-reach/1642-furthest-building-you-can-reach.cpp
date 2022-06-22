@@ -3,7 +3,7 @@ class Solution {
 public:
     int furthestBuilding(vector<int>& heights, int bricks, int ladders) {
         
-        // Giving wrong answer in some test cases
+        // More optimized code 
         vector<int> maximums;
         int prev=heights[0];
         int height, lowestAmongMaximums, i, diff;
@@ -66,7 +66,7 @@ public:
         }
         return i-1;
         
-        // Solution
+        // Solution 2 ( Neatly written but more time complex )
         
         
 //         priority_queue<ll, vector<ll> , greater<ll>> pq;
