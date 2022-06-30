@@ -4,6 +4,7 @@ public:
         
         // Approach 3
         sort(nums.begin(),nums.end());
+        
         int sum=0;
         for(int i=0,j=nums.size()-1;i<j;i++,j--)
         {
