@@ -9,7 +9,9 @@ public:
         {
             sum+= (nums[j]-nums[i]);
         }
+        
         return sum;
+        
         
         
         // Approach 2 
