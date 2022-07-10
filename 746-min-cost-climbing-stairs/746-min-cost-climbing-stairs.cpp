@@ -12,7 +12,7 @@ public:
         return dp[index];
     }
     int minCostClimbingStairs(vector<int>& cost) {
-        memset(dp,-1,1000*sizeof(dp[0]));
+        memset(dp,-1,1004*sizeof(dp[0]));
         return min(rec(cost,0),rec(cost,1));
     }
 };
