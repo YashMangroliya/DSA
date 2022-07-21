@@ -41,13 +41,6 @@ public:
             curr=next;
             if(next!=nullptr) next=next->next;
             
-            
-            // curr->next=prev;
-            // tmp=next->next;
-            // next->next=curr;
-            // prev=curr;
-            // curr=next;
-            // next=tmp;
         }
         if(prevToStart!=nullptr) prevToStart->next=curr;
         if(start==head) return end;
