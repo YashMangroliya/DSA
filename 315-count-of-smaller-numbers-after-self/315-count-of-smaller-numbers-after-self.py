@@ -12,20 +12,9 @@ class Solution:
             i-=1
         
         return ans;
+    
+    # This code gives TLE in c++, this is because this bisect_left is more optimized than left_bound
+    # Although this question is the Recursion count question but asked in different way, we can solve this using mergeSort method also
         
         
-        
-#      vector<int> countSmaller(vector<int>& nums) {
-#          vector<int> vec;
-#          int size=nums.size();
-#          vector<int> ans(size);
-#          vector<int>::iterator itr;
-         
-#          for(int i=size-1;i>=0;i--)
-#          {
-#              itr=lower_bound(vec.begin(),vec.end(),nums[i]);
-#              ans[i]=itr-vec.begin();
-#              vec.insert(itr,nums[i]);
-#          }
-#          return ans;
-#      }
+  
