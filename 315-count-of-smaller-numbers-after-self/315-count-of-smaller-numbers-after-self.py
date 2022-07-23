@@ -1,9 +1,9 @@
 class Solution:
     def countSmaller(self, nums: List[int]) -> List[int]:
         vec=[]
-        size=len(nums);
+        size=len(nums)
         ans=[]
-        for i in range(size) : ans.append(0);
+        for i in range(size) : ans.append(0)
         i=size-1
         while i>=0 :
             itr=bisect_left(vec,nums[i]);
