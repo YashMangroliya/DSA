@@ -14,10 +14,8 @@ public:
     TreeNode* top;
     void preOrder(TreeNode *curr)
     {
-        //process
         if(curr==nullptr) return;
         TreeNode* right=curr->right, * left=curr->left;
-        
         
         if(top!=nullptr)
         {
