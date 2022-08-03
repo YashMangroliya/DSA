@@ -6,13 +6,21 @@ public:
     }
     
     bool book(int start, int end) {
+        bool flag=false;
+        pair<int,int> pp;
         for(pair<int,int> p : vec)
         {
-            if(start>=p.first && start<p.second) return false;
-            if(end>p.first && end<=p.second) return false;
+            if(start>=p.first && start<p.second  ||  end>p.first && end<=p.second  ||  p.first>=start && p.first<end || p.second>start && p.second<=end)
+            {
+                flag = true;
+                pp=p;
+                break;
+            }
             
-            if(p.first>=start && p.first<end) return false;
-            if(p.second>start && p.second<=end) return false;
+        }
+        if(flag)
+        {
+            return false;
         }
         
         vec.push_back(make_pair(start,end));
