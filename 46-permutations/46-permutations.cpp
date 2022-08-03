@@ -7,6 +7,7 @@ public:
             ans.push_back(nums);
             return;
         }
+        
         for(int i=index;i<nums.size();i++)
         {
             swap(nums[index],nums[i]);
