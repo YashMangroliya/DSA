@@ -20,7 +20,6 @@ public:
                 pp=p;
                 flag=true;
             }
-            
         }
         if(flag)
         {
