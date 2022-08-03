@@ -6,7 +6,8 @@ public:
     }
     
     bool book(int start, int end) {
-        pair<int,int> p;
+        pair<int,int> p,pp;
+        bool flag=false;
         for(int i=0;i<vec.size();i++)
         {
             p=vec[i];
@@ -14,15 +15,19 @@ public:
             {
                 return false;
             }
-            // if(p.second==start)
-            // {
-            //     vec.erase(vec.begin()+i);
-            //     vec.insert(vec.begin(),make_pair(p.first,end));
-            // }
+            if(p.second==start)
+            {
+                pp=p;
+                flag=true;
+            }
             
         }
-        
-        vec.push_back(make_pair(start,end));
+        if(flag)
+        {
+            remove(vec.begin(),vec.end(),pp);
+            vec.push_back(make_pair(pp.first,end));
+        }
+        else vec.push_back(make_pair(start,end));
         return true;
     }
 };
