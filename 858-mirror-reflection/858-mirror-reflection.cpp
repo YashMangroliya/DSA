@@ -17,6 +17,7 @@ public:
                     return 2;
                 }
             }
+            
             flag=!flag;
         }
     }
