@@ -42,9 +42,14 @@ public:
         {
             if(s.count(i)==0)
             {
-                for(j=0;j<9 && board[p.first][j]!=(i+48);j++);
-                for(k=0;k<9 && board[k][p.second]!=(i+48);k++);
-                if(j==9 && k==9)
+                // for(j=0;j<9 && board[p.first][j]!=(i+48);j++);
+                // for(k=0;k<9 && board[k][p.second]!=(i+48);k++);
+                for(j=0;j<9;j++)
+                {
+                    if(board[p.first][j]== (i+48)) break;
+                    if(board[j][p.second]== (i+48)) break;
+                }
+                if(j==9)
                 {
                     board[p.first][p.second]=i+48;
                     if(solve(board)) return true;
