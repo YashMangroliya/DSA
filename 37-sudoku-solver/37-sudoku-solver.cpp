@@ -1,8 +1,7 @@
 class Solution {
 public:
-    pair<int,int> findIndex(vector<vector<char>>& board)
+    void findIndex(vector<vector<char>>& board,pair<int,int>& p)
     {
-        pair<int,int> p;
         for(int i=0;i<9;i++)
         {
             for(int j=0;j<9;j++)
@@ -11,19 +10,19 @@ public:
                 {
                     p.first=i;
                     p.second=j;
-                    return p;
+                    return;
                 }
             }
         }
         p.first=-1;
         p.second=-1;
-        return p;
+        return;
     }
     bool solve(vector<vector<char>>& board) {
         pair<int,int> p;
         int row,col,i,j,k;
         unordered_set<int> s;
-        p=findIndex(board);
+        findIndex(board,p);
         if(p.first==-1) return true;
         // cout<<p.first<<" "<<p.second<<endl;
         
@@ -42,8 +41,6 @@ public:
         {
             if(s.count(i)==0)
             {
-                // for(j=0;j<9 && board[p.first][j]!=(i+48);j++);
-                // for(k=0;k<9 && board[k][p.second]!=(i+48);k++);
                 for(j=0;j<9;j++)
                 {
                     if(board[p.first][j]== (i+48)) break;
