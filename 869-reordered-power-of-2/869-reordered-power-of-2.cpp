@@ -15,12 +15,6 @@ public:
         sort(str2.begin(),str2.end());
         for(string str1 : vec)
         {
-            // if(str1.length()!=str2.length()) continue;
-            // if(str1.length()==1 && str2.length()==1)
-            // {
-            //     if(str1==str2) return true;
-            //     continue;
-            // }
             if(str1==str2) return true;
         }
         return false;
