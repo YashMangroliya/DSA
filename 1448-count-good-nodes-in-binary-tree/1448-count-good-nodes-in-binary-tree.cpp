@@ -15,6 +15,7 @@ public:
     void preorder(TreeNode* root,vector<int>& nodes)
     {
         if(root==nullptr) return;
+        
         if(root->val >= *max_element(nodes.begin(),nodes.end()))
         {
             count++;
