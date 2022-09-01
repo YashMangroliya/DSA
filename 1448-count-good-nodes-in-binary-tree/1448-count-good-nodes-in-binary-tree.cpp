@@ -18,14 +18,15 @@ public:
         if(root->val >= *max_element(nodes.begin(),nodes.end()))
         {
             count++;
-            // cout<<root->val<<endl;
         }
         nodes.push_back(root->val);
         preorder(root->left,nodes);
         preorder(root->right,nodes);
         nodes.pop_back();
     }
+
     int goodNodes(TreeNode* root) {
+    
         vector<int> nodes;
         nodes.push_back(root->val);
         preorder(root->left,nodes);
