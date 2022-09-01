@@ -24,7 +24,6 @@ public:
         preorder(root->right,nodes);
         nodes.pop_back();
     }
-
     int goodNodes(TreeNode* root) {
         vector<int> nodes;
         nodes.push_back(root->val);
