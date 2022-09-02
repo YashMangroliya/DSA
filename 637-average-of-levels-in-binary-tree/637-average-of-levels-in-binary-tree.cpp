@@ -31,6 +31,7 @@ public:
             avg=sum/size;
             ans.push_back(avg);
         }
+        
         return ans;
     }
 };
