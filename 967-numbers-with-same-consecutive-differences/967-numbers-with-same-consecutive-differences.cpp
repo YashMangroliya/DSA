@@ -7,6 +7,7 @@ public:
             ans.insert(stoi(num));
             return;
         }
+
         string s;
         if(curr+k<10)
         {
