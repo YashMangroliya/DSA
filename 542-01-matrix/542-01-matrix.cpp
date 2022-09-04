@@ -49,7 +49,8 @@
 //         {
 //             for(int j=0;j<mat[0].size();j++)
 //             {
-//                 ans[i][j]=bfs(i,j,mat);
+//                 if(mat[i][j]==1) ans[i][j]=bfs(i,j,mat);
+//                 else ans[i][j]=0;
 //             }
 //         }
 //         return ans;
@@ -102,12 +103,7 @@ public:
                     que.push(make_pair(r,c));
                 }
             }
-            // if(row-1>=0 && visited[row-1][col]==0 && mat[row-1][col]==1)
-            // {
-            //     visited[row-1][col]=1;
-            //     ans[row-1][col]=ans[row][col]+1;
-            //     que.push(make_pair(row-1,col));
-            // }
+            
         }
         
         return ans;
