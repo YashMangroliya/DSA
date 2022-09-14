@@ -12,6 +12,7 @@
 class Solution {
 public:
     int count=0;
+    
     void dfs(TreeNode* root,unordered_map<int,int>& map1)
     {
         if(root==nullptr) return;
