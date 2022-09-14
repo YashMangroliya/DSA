@@ -13,7 +13,7 @@ class Solution {
 public:
     int count=0;
     
-    void dfs(TreeNode* root,unordered_map<int,int>& map1)
+    void dfs(TreeNode* root,vector<int>& map1)
     {
         if(root==nullptr) return;
         map1[root->val]++;
@@ -21,9 +21,9 @@ public:
         {
             
             int c=0;
-            for(auto entry : map1)
+            for(int frequency : map1)
             {
-                if(entry.second%2!=0) c++;
+                if(frequency%2!=0) c++;
             }
             if(c<=1) count++;
             map1[root->val]--;
@@ -34,8 +34,8 @@ public:
         map1[root->val]--;
     }
     int pseudoPalindromicPaths (TreeNode* root) {
-        unordered_map<int,int> map1;
-        dfs(root,map1);
+        vector<int> vec(10,0);
+        dfs(root,vec);
         return count;
     }
 };
