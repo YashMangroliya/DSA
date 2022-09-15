@@ -8,6 +8,7 @@ public:
         {
             map1[n]++;
         }
+        
         sort(changed.begin(),changed.end());
         for(int n : changed)
         {
