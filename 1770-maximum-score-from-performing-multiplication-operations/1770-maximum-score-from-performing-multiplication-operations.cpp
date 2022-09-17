@@ -32,6 +32,7 @@ public:
     
     int maximumScore(vector<int>& nums, vector<int>& M) {   
         vector<vector<int>> dp(M.size(),vector<int>(M.size(),INT_MIN));
+
         return helper(nums,M,0,nums.size()-1,0,dp);
     }
 };
