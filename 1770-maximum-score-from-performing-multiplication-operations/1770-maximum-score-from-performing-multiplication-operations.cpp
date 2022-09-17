@@ -1,3 +1,4 @@
+// TLE
 // class Solution {
 // public:
 //     // si-> start index, ei-> end index, mi-> multiplier index
@@ -20,25 +21,17 @@
 
 class Solution {
 public:
-    vector<vector<int>> dp;
-    
-    int solve(int i, int n, int j, vector<int> &nums, vector<int> &M){
-        
-        if (j == M.size()) return 0;
-        if (dp[i][j] != INT_MIN) return dp[i][j];
-        
-        // Left Side
-        int left = solve(i + 1, n, j + 1, nums, M) + (nums[i] * M[j]);
-        
-        // Right Side
-        int right = solve(i, n, j + 1, nums, M) + (nums[(n - 1) - (j - i)] * M[j]);
-        
-        return dp[i][j] = max(left, right);
+    int helper(vector<int>& nums,vector<int>& M,int si,int ei,int mi,vector<vector<int>>& dp)
+    {
+        if(mi==M.size()) return 0;
+        if(dp[mi][si]!=INT_MIN) return dp[mi][si];
+        int left=M[mi]*nums[si] + helper(nums,M,si+1,ei,mi+1,dp);
+        int right=M[mi]*nums[ei] + helper(nums,M,si,ei-1,mi+1,dp);
+        return dp[mi][si]= max(left,right);
     }
     
     int maximumScore(vector<int>& nums, vector<int>& M) {   
-        int n = nums.size(), m = M.size();
-        dp.resize(m + 1, vector<int>(m + 1, INT_MIN));
-        return solve(0, n, 0, nums, M);
+        vector<vector<int>> dp(M.size(),vector<int>(M.size(),INT_MIN));
+        return helper(nums,M,0,nums.size()-1,0,dp);
     }
 };
