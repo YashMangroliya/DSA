@@ -21,7 +21,6 @@
 class Solution {
 public:
     vector<int> sumEvenAfterQueries(vector<int>& nums, vector<vector<int>>& queries) {
-        
         vector<int> ans;
         int sum=0,prev,curr;
         for(int n : nums) if(n%2==0) sum+=n;
