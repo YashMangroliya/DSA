@@ -1,11 +1,14 @@
 class Solution {
 public:
     vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+        
+        // code to make adjecency List form given data starts here
         vector<vector<int>> adjecencyList(numCourses,vector<int>());
         for(int i=0;i<prerequisites.size();i++)
         {
             adjecencyList[prerequisites[i][1]].push_back(prerequisites[i][0]);
         }
+        // code to make adjecency List form given data ends here
         int V=numCourses;
         vector<int> indegree(V,0);
 	    queue<int> que;
