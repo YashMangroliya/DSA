@@ -12,6 +12,7 @@ public:
         this->k=k;
     }
     
+    
     bool enQueue(int value) {
         // cout<<"enque"<<endl;
         if(size==k) return false;
