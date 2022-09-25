@@ -1,11 +1,11 @@
 class MyCircularQueue {
 private:
-    vector<int>* que;
+    vector<int> que;
     int front,rear,size,k;
 public:
     MyCircularQueue(int k) {
         cout<<k<<endl;
-        que=new vector<int>(k);
+        que.resize(k);
         front=0;
         rear=0;
         size=0;
@@ -20,15 +20,14 @@ public:
             front=0;
             rear=0;
             size=1;
-            (*que)[rear]=value;
+            que[rear]=value;
             return true;
         }
         rear++;
         if(rear==k) rear=0;
-        (*que)[rear]=value;
+        que[rear]=value;
         size++;
         return true;
-        
     }
     
     bool deQueue() {
@@ -43,14 +42,14 @@ public:
     int Front() {
         // cout<<"front"<<endl;
         if(size==0) return -1;
-        int val=(*que)[front];
+        int val=que[front];
         return val;
     }
     
     int Rear() {
         // cout<<"rear"<<endl;
         if(size==0) return -1;
-        int val=(*que)[rear];
+        int val=que[rear];
         return val;
     }
     
