@@ -4,11 +4,10 @@ public:
         string original,current;
         original=dominoes;
         current=dominoes;
-        int change=1;
-        while(change>0)
+        bool change=true;
+        while(change)
         {
-            cout<<change<<endl;
-            change=0;
+            change=false;
             for(int i=0;i<dominoes.length();i++)
             {
                 if(current[i]!='.') continue;
@@ -17,7 +16,7 @@ public:
                     if(original[1]=='L') 
                     {
                         current[0]='L';
-                        change++;
+                        change=true;
                     }
                     continue;
                 }
@@ -26,7 +25,7 @@ public:
                     if(original[i-1]=='R')
                     {
                         current[i]='R';
-                        change++;
+                        change=true;
                     }
                     continue;
                 }
@@ -34,15 +33,13 @@ public:
                 if(original[i-1]=='R')
                 {
                     current[i]='R';
-                    cout<<"Part 2"<<endl;
-                    change++;
+                    change=true;
                     continue;
                 }
                 if(original[i+1]=='L') 
                 {
                     current[i]='L';
-                    cout<<"Part 3"<<endl;
-                    change++;
+                    change=true;
                     continue;
                 }
             }
