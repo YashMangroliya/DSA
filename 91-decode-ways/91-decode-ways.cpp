@@ -1,24 +1,34 @@
 class Solution {
-public:
-    int find(int i,string s,vector<int> &dp){
-        if(s[i]=='0'){
-            return 0;
-        }
-        if(i==s.size()){
+public:  //  226
+    int helper(int i,string s,int n,int dp[])
+    {
+        if(i>=n) 
+        {
             return 1;
         }
-        if(dp[i]!=-1){
-            return dp[i];
+        if(dp[i]!=-1) return dp[i];
+        int a,b,num,first=0,second=0;
+        a=s[i]-'0';
+        if(a!=0) 
+        {
+            first = helper(i+1,s,n,dp);
         }
-        int one = find(i+1,s,dp); int two=0;
-        if(i<s.size()-1 and (s[i]=='1' || (s[i]=='2' and s[i+1]<='6'))){
-            two += find(i+2,s,dp);
+        else return 0;
+        if(i+1<n && a!=0)
+        {
+            b=s[i+1]-'0';
+            num=a*10+b;
+            if(num>=10 && num<=26)
+            {
+                second = helper(i+2,s,n,dp);
+            }
         }
-        return dp[i] = one+two;
+        return dp[i]=first+second;
     }
     int numDecodings(string s) {
-        //using dp memoazation
-        vector<int> dp(s.size()+1,-1);
-        return find(0,s,dp);
+        int dp[s.length()];
+        memset(dp,-1,sizeof(dp));
+        return helper(0,s,s.length(),dp);
+        
     }
 };
