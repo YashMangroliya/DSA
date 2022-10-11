@@ -26,6 +26,7 @@ public:
             if(nums[i]<nums[maxi])
             {
                 greater[i]=maxi;
+                if(lesser[i]!=-1) return true;
             }
             else
             {
