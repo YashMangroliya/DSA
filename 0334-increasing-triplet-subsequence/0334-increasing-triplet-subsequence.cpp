@@ -35,10 +35,10 @@ public:
             }
         }
         
-        for(int i=0;i<n;i++)
-        {
-            if(lesser[i]!=-1 && greater[i]!=-1) return true;
-        }
+        // for(int i=0;i<n;i++)
+        // {
+        //     if(lesser[i]!=-1 && greater[i]!=-1) return true;
+        // }
         return false;
     }
 };
