@@ -19,6 +19,7 @@ public:
                 lesser[i]=-1;
             }
         }
+        
         maxi=n-1;
         greater[n-1]=-1;
         for(int i=n-1;i>=0;i--)
